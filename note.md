@@ -19,3 +19,8 @@ $ cnpm i scss save-dev
 
 ### 使用path
 安装cnpm i @types/node save-dev
+
+### 引用ant design 组件库
+
+$ cnpm i antd --save  
+$ cnpm install --save @ant-design/icons 图标
