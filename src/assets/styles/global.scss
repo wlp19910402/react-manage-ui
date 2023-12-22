@@ -1,0 +1,8 @@
+$color: #eee;
+body {
+  background-color: $color;
+  user-select: none; //禁止选中文字
+}
+img {
+  -webkit-user-drag: none; //禁止文件拖动
+}
