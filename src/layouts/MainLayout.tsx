@@ -1,46 +1,10 @@
 import React, { useState } from 'react'
-import {
-  MenuFoldOutlined,
-  MenuUnfoldOutlined,
-  DesktopOutlined,
-  FileOutlined,
-  PieChartOutlined,
-  TeamOutlined,
-  UserOutlined,
-} from '@ant-design/icons'
-import { Layout, Menu, Button, theme, Breadcrumb } from 'antd'
-import type { MenuProps } from 'antd'
-import { useNavigate, Outlet } from 'react-router-dom'
-const { Header, Sider, Content, Footer } = Layout
-type MenuItem = Required<MenuProps>['items'][number]
-function getItem(
-  label: React.ReactNode,
-  key: React.Key,
-  icon?: React.ReactNode,
-  children?: MenuItem[]
-): MenuItem {
-  return {
-    key,
-    icon,
-    children,
-    label,
-  } as MenuItem
-}
+import { MenuFoldOutlined, MenuUnfoldOutlined } from '@ant-design/icons'
+import { Layout, Button, theme, Breadcrumb } from 'antd'
+import { Outlet } from 'react-router-dom'
+import MainMenu from './components/MainMenu'
 
-const items: MenuItem[] = [
-  getItem('首页', '/home', <PieChartOutlined />),
-  getItem('关于', '/about', <DesktopOutlined />),
-  getItem('User', 'sub1', <UserOutlined />, [
-    getItem('Tom', '3'),
-    getItem('Bill', '4'),
-    getItem('Alex', '5'),
-  ]),
-  getItem('Team', 'sub2', <TeamOutlined />, [
-    getItem('Team 1', '6'),
-    getItem('Team 2', '8'),
-  ]),
-  getItem('Files', '9', <FileOutlined />),
-]
+const { Header, Sider, Content, Footer } = Layout
 
 const MainLayout: React.FC = () => {
   const [collapsed, setCollapsed] = useState(false)
@@ -48,22 +12,11 @@ const MainLayout: React.FC = () => {
     token: { colorBgContainer, borderRadiusLG },
   } = theme.useToken()
 
-  const navigateTo = useNavigate()
-  const menuClick = (e: { key: string }) => {
-    // 编程式跳转
-    navigateTo(e.key)
-  }
   return (
     <Layout>
       <Sider trigger={null} collapsible collapsed={collapsed}>
         <div className="demo-logo-vertical" />
-        <Menu
-          theme="dark"
-          mode="inline"
-          defaultSelectedKeys={['1']}
-          items={items}
-          onClick={menuClick}
-        />
+        <MainMenu />
       </Sider>
       <Layout>
         <Header
@@ -90,13 +43,10 @@ const MainLayout: React.FC = () => {
           </Breadcrumb>
         </Header>
 
-        <Content
-          style={{
-            margin: '24px 16px',
-          }}
-        >
+        <Content>
           <div
             style={{
+              margin: '24px 16px',
               padding: 24,
               minHeight: 'calc(100vh - 160px)',
               background: colorBgContainer,

@@ -26,6 +26,10 @@ const routes = [
         path: '/about',
         element: withLoadingComponent(<About />),
       },
+      {
+        path: '/s/3',
+        element: withLoadingComponent(<About />),
+      },
     ],
   },
 ]
