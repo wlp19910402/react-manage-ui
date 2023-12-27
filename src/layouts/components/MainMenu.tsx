@@ -32,11 +32,11 @@ const items: MenuItem[] = [
       },
       {
         label: 'Bill',
-        key: '4',
+        key: '/s/4',
       },
       {
         label: 'Alex',
-        key: '5',
+        key: '/s/5',
       },
     ],
   },
@@ -47,11 +47,11 @@ const items: MenuItem[] = [
     children: [
       {
         label: 'Team 1',
-        key: '6',
+        key: '/t/6',
       },
       {
         label: 'Team 2',
-        key: '7',
+        key: '/t/7',
       },
     ],
   },
